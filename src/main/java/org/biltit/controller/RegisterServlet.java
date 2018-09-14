@@ -1,4 +1,4 @@
-package controller;
+package org.biltit.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
