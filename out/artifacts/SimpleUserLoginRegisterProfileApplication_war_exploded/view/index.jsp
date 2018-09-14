@@ -10,7 +10,7 @@
 <body>
 	<div id="container">
 		
-		<div class="box1">
+		<div class="login-box">
 		
 			<form action="login" method="post" class="form">
 							
@@ -27,7 +27,7 @@
 			<p>loginErrorMessage</p>
 	</div>
 		
-		<div class="box2">
+		<div class="register-box">
 			<form action="register" method="post" class="form">
 						 
 				<label>Enter email: </label> 
