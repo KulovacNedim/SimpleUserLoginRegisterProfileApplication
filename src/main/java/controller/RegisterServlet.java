@@ -1,6 +1,7 @@
 package main.java.controller;
 
 import main.java.entities.User;
+import main.java.service.AddressService;
 import main.java.service.RoleService;
 import main.java.service.UserService;
 
@@ -26,6 +27,7 @@ public class RegisterServlet extends HttpServlet {
 
         RoleService roleService = new RoleService();
         UserService userService = new UserService();
+        AddressService addressService = new AddressService();
 
         User user = new User();
         String email = (String) request.getSession().getAttribute("email");
@@ -46,8 +48,18 @@ public class RegisterServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        try {
+            user.setAddress(addressService.getAddressById(userService.getUserByEmail(user.getEmail()).getId()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String regSucc = "You are registered. Please edit your profile.";
+        request.setAttribute("regSucc", regSucc);
+
         request.getSession().setAttribute("user", user);
-        RequestDispatcher success = request.getRequestDispatcher("view/firstsetup.jsp");
+
+        RequestDispatcher success = request.getRequestDispatcher("view/profilesetup.jsp");
         success.forward(request, response);
 
     }

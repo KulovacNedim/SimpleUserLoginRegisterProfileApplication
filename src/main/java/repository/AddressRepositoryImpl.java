@@ -53,4 +53,20 @@ public class AddressRepositoryImpl implements AddressRepository {
         }
 
     }
+
+    @Override
+    public void updateAddress(int address_id, String street, String city) throws SQLException {
+
+        String query = "UPDATE addresses SET street = ?, city = ? WHERE id = ?";
+
+        try (
+                PreparedStatement statement = connection.prepareStatement(query);) {
+
+            statement.setString(1, street);
+            statement.setString(2, city);
+            statement.setInt(3, address_id);
+
+            statement.executeUpdate();
+        }
+    }
 }
