@@ -69,4 +69,15 @@ public class AddressRepositoryImpl implements AddressRepository {
             statement.executeUpdate();
         }
     }
+
+    @Override
+    public void deleteAddressById(int address_id) throws SQLException {
+
+        String query = "DELETE FROM addresses WHERE id = " + address_id;
+
+        try (PreparedStatement statement = connection.prepareStatement(query);) {
+
+            statement.executeUpdate();
+        }
+    }
 }

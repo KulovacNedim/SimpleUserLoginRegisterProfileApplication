@@ -11,4 +11,6 @@ public interface AddressRepository {
     public void saveAddress(Address address) throws SQLException;
 
     public void updateAddress(int address_id, String street, String city) throws SQLException;
+
+    public void deleteAddressById (int address_id) throws SQLException;
 }

@@ -11,4 +11,6 @@ public interface UserRepository {
     public User getUserByEmail(String email) throws SQLException;
 
     public void updateUser(User user) throws SQLException;
+
+    public void deleteUser(User user) throws SQLException;
 }
