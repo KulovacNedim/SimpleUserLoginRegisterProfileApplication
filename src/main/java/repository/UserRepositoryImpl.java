@@ -18,7 +18,7 @@ public class UserRepositoryImpl implements UserRepository {
     private RoleService roleService = new RoleService();
 
     public void saveUser(User user) throws SQLException {
-        System.out.println("+++++++++++++++++++++++++"+user.toString());
+
         String query = "INSERT INTO users(first_name, last_name, email, password, role_id) VALUES (?, ?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query);) {
@@ -63,5 +63,25 @@ public class UserRepositoryImpl implements UserRepository {
         }
 
         return user;
+    }
+
+    @Override
+    public void updateUser(User user) throws SQLException {
+
+        String query = "UPDATE users SET first_name = ?, last_name = ?, password = ? WHERE email = ?";
+
+        try (
+                PreparedStatement statement = connection.prepareStatement(query);) {
+
+            statement.setString(1, user.getFirstName());
+            statement.setString(2, user.getLastName());
+            statement.setString(3, user.getPassword());
+            statement.setString(4, user.getEmail());
+
+            statement.executeUpdate();
+
+            addressService.updateAddress(getUserByEmail(user.getEmail()).getId(), user.getAddress().getStreet(),
+                    user.getAddress().getCity());
+        }
     }
 }

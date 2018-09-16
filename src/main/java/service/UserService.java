@@ -16,4 +16,8 @@ public class UserService {
     public void saveUser(User user) throws SQLException {
         userRepo.saveUser(user);
     }
+
+    public void updateUser (User user) throws SQLException {
+        userRepo.updateUser(user);
+    }
 }

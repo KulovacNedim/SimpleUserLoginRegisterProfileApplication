@@ -22,7 +22,7 @@ Technologies you need to use:
 
 BONUS 1:
 If it's still a banal task - add user roles to your system :
-- admin (has the option to list all registered users in the system, delete users, or edit user data)
+- admin (has option to list all registered users in the system, delete users, or edit user data)
 - user. 
 
 BONUS 2:

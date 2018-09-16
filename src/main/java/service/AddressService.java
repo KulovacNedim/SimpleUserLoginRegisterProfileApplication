@@ -17,4 +17,8 @@ public class AddressService {
     public void saveAddress(Address address) throws SQLException {
         addressRepo.saveAddress(address);
     }
+
+    public void updateAddress(int address_id, String street, String city) throws SQLException {
+        addressRepo.updateAddress(address_id, street, city);
+    }
 }
