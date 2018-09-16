@@ -22,7 +22,7 @@
 <body>
 	<div id="container">
 		
-		<div class="login-box">
+		<div class="left-box">
 		
 			<form action="login" method="post" class="form">
 							
@@ -36,10 +36,10 @@
 			 
 			</form>
 			
-			<p>loginErrorMessage</p>
+			<c:out value = "${wrongCredentials}"/>
 	</div>
 		
-		<div class="register-box">
+		<div class="right-box">
 			<form action="register" method="post" class="form">
 						 
 				<label>Enter email: </label> 

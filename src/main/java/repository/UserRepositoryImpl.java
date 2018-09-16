@@ -84,4 +84,17 @@ public class UserRepositoryImpl implements UserRepository {
                     user.getAddress().getCity());
         }
     }
+
+    @Override
+    public void deleteUser(User user) throws SQLException {
+
+        addressService.deleteAddressById(getUserByEmail(user.getEmail()).getId());
+
+        String query = "DELETE FROM users WHERE email = '" + user.getEmail() + "';";
+
+        try (PreparedStatement statement = connection.prepareStatement(query);) {
+
+            statement.executeUpdate();
+        }
+    }
 }

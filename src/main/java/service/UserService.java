@@ -20,4 +20,8 @@ public class UserService {
     public void updateUser (User user) throws SQLException {
         userRepo.updateUser(user);
     }
+
+    public void deleteUser (User user) throws SQLException {
+        userRepo.deleteUser(user);
+    }
 }

@@ -7,9 +7,26 @@
     <title>Title</title>
 </head>
 <body>
-moj profil
-<c:out value = "${user.toString()}"/>
+	<h1>User profile</h1>
+	<div>
+		<p>Admin options</p>
+		<p></p>
+		<p><a href="/editProfile"> Edit informations</a></p>
+		<p><a href="/deleteProfile">Delete my profile</a></p>
+		<p><a href="/logout">Log out</a></p>
+	</div>
+
 
 <c:out value = "${passwordChanged}"/>
+
+<p>User info</p>
+
+<c:out value = "${user.firstName}"/><br />
+<c:out value = "${user.lastName}"/><br />
+<c:out value = "${user.email}"/><br />
+<c:out value = "${user.address.street}"/><br />
+<c:out value = "${user.address.city}"/><br />
+<c:out value = "${user.role.roleName}"/><br />
+
 </body>
 </html>

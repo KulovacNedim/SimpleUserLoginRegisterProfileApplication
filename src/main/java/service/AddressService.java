@@ -21,4 +21,8 @@ public class AddressService {
     public void updateAddress(int address_id, String street, String city) throws SQLException {
         addressRepo.updateAddress(address_id, street, city);
     }
+
+    public void deleteAddressById(int address_id) throws SQLException {
+        addressRepo.deleteAddressById(address_id);
+    }
 }
