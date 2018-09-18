@@ -1,5 +1,7 @@
 package main.java.controller;
 
+import main.java.service.LogoutService;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,9 +16,17 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.getSession().invalidate();
+        LogoutService logoutService = new LogoutService();
 
-        RequestDispatcher success = req.getRequestDispatcher("view/index.jsp");
-        success.forward(req, resp);
+        if (req.getSession().getAttribute("user") == null) {
+            RequestDispatcher success = req.getRequestDispatcher("view/index.jsp");
+            success.forward(req, resp);
+        } else {
+
+            logoutService.logout(req);
+
+            RequestDispatcher success = req.getRequestDispatcher("view/index.jsp");
+            success.forward(req, resp);
+        }
     }
 }

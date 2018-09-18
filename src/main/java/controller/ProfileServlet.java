@@ -14,8 +14,14 @@ public class ProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        RequestDispatcher success = req.getRequestDispatcher("view/profile.jsp");
-        success.forward(req, resp);
+        if (req.getSession().getAttribute("user") == null) {
+            RequestDispatcher success = req.getRequestDispatcher("view/index.jsp");
+            success.forward(req, resp);
+        } else {
+            RequestDispatcher success = req.getRequestDispatcher("view/profile.jsp");
+            success.forward(req, resp);
+        }
+
     }
 
     @Override

@@ -8,9 +8,13 @@
 </head>
 <body>
 	<h1>User profile</h1>
-	<div>
-		<p>Admin options</p>
-		<p></p>
+
+	<c:if test = "${user.role.id == 1}">
+         <p><a href="/listusers">List all users</a><p>
+     </c:if>
+
+
+
 		<p><a href="/editProfile"> Edit informations</a></p>
 		<p><a href="/deleteProfile">Delete my profile</a></p>
 		<p><a href="/logout">Log out</a></p>

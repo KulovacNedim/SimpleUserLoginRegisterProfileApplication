@@ -19,6 +19,7 @@ public class RegisterFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
         HttpServletRequest request = (HttpServletRequest)servletRequest;
+
         UserService userService = new UserService();
 
         String email = (String) servletRequest.getParameter("email");
@@ -33,13 +34,14 @@ public class RegisterFilter implements Filter {
         }
 
         if (existingUser.getEmail() != null) {
+
             // user exist, ask for another email
             String existingEmail = "User with e-mail you entered already exist.";
             request.setAttribute("existingEmail", existingEmail);
             RequestDispatcher redirectToIndexPage = request.getRequestDispatcher("view/index.jsp");
             redirectToIndexPage.forward(request, servletResponse);
-
         } else {
+
             // user does not exist
             request.getSession().setAttribute("email", email);
             request.getSession().setAttribute("password", password);

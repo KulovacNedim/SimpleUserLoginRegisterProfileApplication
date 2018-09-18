@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
@@ -10,6 +11,9 @@
 
 <p>You are registered. Please edit your profile.</p>
 
+
+<c:out value = "${passwordChanged}"/>
+
 <p>Add your info</p>
 
 <div class="left-box">
@@ -17,27 +21,42 @@
 <form action="updateInfo" method="post" class="form">
 		
 		<label>First name: </label> 
-		<input type="text" name="firstName" id="firstName" value="<c:out value = "${user.firstName}"/>" required autofocus><br>
+		<input type="text" name="firstName" id="firstName" value="${userToEdit.firstName}" required autofocus/><br>
 			
 		<label>Last name: </label> 
-		<input type="text" name="lastName" id="lastName" value="<c:out value = "${user.lastName}"/>" required><br>
+		<input type="text" name="lastName" id="lastName" value="${userToEdit.lastName}" required/> <br>
 
-		<label>email: </label> 
-		<input type="text" name="email" id="email" value="<c:out value = "${user.email}"/>" disabled><br>
+		<label>email: </label> <c:out value = "${userToEdit.email}"/>
+		<input type="text" name="email" id="email" value="${userToEdit.email}" hidden/><br>
 
 		<label>Street: </label> 
-		<input type="text" name="street" id="street" value="<c:out value = "${user.address.street}"/>" required><br>
+		<input type="text" name="street" id="street" value="${userToEdit.address.street}" required/><br>
 
 		<label>City: </label> 
-		<input type="text" name="city" id="city" value="<c:out value = "${user.address.city}"/>" required><br>
+		<input type="text" name="city" id="city" value="${userToEdit.address.city}" required/> <br>
 
-		<label>Role: </label> 
-		<input type="text" name="roleName" id="roleName" value="<c:out value = "${user.role.roleName}"/>" disabled><br>
+		
+
+		<select name="roleId" id="roleId" ${user.role.id == 1 ? '' : 'hidden'}>
+								
+			<c:forEach items="${roles}" var="role" varStatus="loop">
+
+				<option value="${role.id}" ${userToEdit.role.id == role.id ? 'selected' : ''} >${role.roleName}</option>
+			</c:forEach>
+			
+			
+		</select>
+
+         
+
 
 		<br /> <br />
 		<input class="button" type="submit" value="Save info">
 
 	</form>
+
+	Back button
+	<a href="/profile"><button>Cancel</button></a>
 
 </div>
 
@@ -50,6 +69,9 @@
 
 
 	<form action="updatePassword" method="post" class="form">
+
+		<input type="text" name="hiddenEmail" id="hiddenEmail" value="${userToEdit.email}" hidden/><br>
+
 		
 		<label>Enter current password: </label> 
 		<input type="password" name="currentPassword" id="currentPassword" value="" required autofocus><br>

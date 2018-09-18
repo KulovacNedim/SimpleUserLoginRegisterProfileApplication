@@ -3,6 +3,7 @@ package main.java.filter;
 import com.sun.deploy.net.HttpRequest;
 import main.java.entities.User;
 import main.java.service.UserService;
+import main.java.validation.PasswordHash;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -22,37 +23,36 @@ public class UpdatePasswordFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
-        UserService userService = new UserService();
-
         HttpServletRequest request = (HttpServletRequest) servletRequest;
 
-        User user = (User) request.getSession().getAttribute("user");
+        UserService userService = new UserService();
+        PasswordHash hash = new PasswordHash();
+
+        User user = null;
+        try {
+            user = (User) userService.getUserByEmail(request.getParameter("hiddenEmail"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         String currentPassword = (String) request.getParameter("currentPassword");
         String newPassword = (String) request.getParameter("newPassword");
 
-        if (user.getPassword().equals(currentPassword)) {
+        if (user.getPassword().equals(hash.getHash(currentPassword))) {
 
             filterChain.doFilter(request, servletResponse);
 
-//            user.setFirstName(firstName);
-//            user.setLastName(lastName);
-//            user.getAddress().setStreet(street);
-//            user.getAddress().setCity(city);
-//
-//            try {
-//                userService.updateUser(user);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//
-//            request.getSession().setAttribute("user", user);
-//            request.getSession().setAttribute("newPassword", newPassword);
-//
-//            RequestDispatcher redirectToPasswordConfirm = request.getRequestDispatcher("view/passconfirm.jsp");
-//            redirectToPasswordConfirm.forward(request, servletResponse);
-
         } else {
+
+            User userToEdit = null;
+            String hiddenEmail = request.getParameter("hiddenEmail");
+            try {
+                userToEdit = userService.getUserByEmail(hiddenEmail);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            request.setAttribute("userToEdit", userToEdit);
 
             String wrongConfirmPassword = "Password is NOT changed. Wrong current password field.";
             request.setAttribute("wrongConfirmPassword", wrongConfirmPassword);
@@ -60,7 +60,6 @@ public class UpdatePasswordFilter implements Filter {
             RequestDispatcher redirect = request.getRequestDispatcher("view/profilesetup.jsp");
             redirect.forward(request, servletResponse);
         }
-
     }
 
     @Override
