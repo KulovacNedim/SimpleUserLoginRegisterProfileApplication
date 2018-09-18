@@ -4,6 +4,7 @@ import main.java.entities.User;
 import main.java.repository.UserRepositoryImpl;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserService {
 
@@ -13,15 +14,23 @@ public class UserService {
         return userRepo.getUserByEmail(email);
     }
 
+    public User getUserById(int userId) throws SQLException {
+        return userRepo.getUserById(userId);
+    }
+
     public void saveUser(User user) throws SQLException {
         userRepo.saveUser(user);
     }
 
-    public void updateUser (User user) throws SQLException {
+    public void updateUser(User user) throws SQLException {
         userRepo.updateUser(user);
     }
 
     public void deleteUser (User user) throws SQLException {
         userRepo.deleteUser(user);
+    }
+
+    public List<User> getAllUsers() throws SQLException {
+        return userRepo.getAllUsers();
     }
 }

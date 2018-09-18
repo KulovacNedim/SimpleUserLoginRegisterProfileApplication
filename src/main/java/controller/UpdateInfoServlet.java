@@ -1,6 +1,8 @@
 package main.java.controller;
 
+import main.java.entities.Role;
 import main.java.entities.User;
+import main.java.service.RoleService;
 import main.java.service.UserService;
 
 import javax.servlet.RequestDispatcher;
@@ -17,28 +19,57 @@ public class UpdateInfoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        if (req.getSession().getAttribute("user") == null) {
+            RequestDispatcher success = req.getRequestDispatcher("view/index.jsp");
+            success.forward(req, resp);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         UserService userService = new UserService();
+        RoleService roleService = new RoleService();
 
-        User user = (User) req.getSession().getAttribute("user");
+        User userToUpdate = null;
+
+        try {
+            userToUpdate = userService.getUserByEmail(req.getParameter("email"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if (userToUpdate.getEmail() == null) {
+            userToUpdate = (User) req.getSession().getAttribute("user");
+
+        } else {
+            try {
+                userToUpdate = (User) userService.getUserByEmail(req.getParameter("email"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
         String firstName = (String) req.getParameter("firstName");
         String lastName = (String) req.getParameter("lastName");
         String street = (String) req.getParameter("street");
         String city = (String) req.getParameter("city");
-
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.getAddress().setStreet(street);
-        user.getAddress().setCity(city);
+        Role role = null;
 
         try {
-            userService.updateUser(user);
+            role = roleService.getRoleById(Integer.parseInt(req.getParameter("roleId")));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        userToUpdate.setFirstName(firstName);
+        userToUpdate.setLastName(lastName);
+        userToUpdate.getAddress().setStreet(street);
+        userToUpdate.getAddress().setCity(city);
+        userToUpdate.setRole(role);
+
+        try {
+            userService.updateUser(userToUpdate);
         } catch (SQLException e) {
             e.printStackTrace();
         }

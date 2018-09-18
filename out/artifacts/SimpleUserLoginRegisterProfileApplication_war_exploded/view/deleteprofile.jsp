@@ -15,15 +15,17 @@
 	<h1>Delete profile?</h1>
 
 	
-<c:out value = "${user.firstName}"/><br />
-		<c:out value = "${user.lastName}"/><br />
-		<c:out value = "${user.email}"/><br />
-		<c:out value = "${user.address.street}"/><br />
-		<c:out value = "${user.address.city}"/><br />
-		<c:out value = "${user.role.roleName}"/><br />
+<c:out value = "${userToDelete.firstName}"/><br />
+		<c:out value = "${userToDelete.lastName}"/><br />
+		<c:out value = "${userToDelete.email}"/><br />
+		<c:out value = "${userToDelete.address.street}"/><br />
+		<c:out value = "${userToDelete.address.city}"/><br />
+		<c:out value = "${userToDelete.role.roleName}"/><br />
+
 	<form action="deleteProfile" method="post" class="form">
 		
 		
+		<input type="text" name="userToDelete" id="userToDelete" value="${userToDelete.email}" /> <br>
 
 		<br /> <br />
 

@@ -2,11 +2,11 @@ package main.java.repository;
 
 import main.java.dbConnectionMenager.ConnectionMenager;
 import main.java.entities.Role;
+import main.java.entities.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RoleRepositoryImpl implements RoleRepository {
 
@@ -40,6 +40,29 @@ public class RoleRepositoryImpl implements RoleRepository {
 
 
 
+
+    }
+
+    @Override
+    public List<Role> getAllRoles() throws SQLException {
+
+        List<Role> roles = new ArrayList<>();
+
+        String query = "SELECT * FROM roles";
+
+        ResultSet rs = null;
+
+        try (Statement statement = connection.createStatement();) {
+
+            rs = statement.executeQuery(query);
+
+            while (rs.next()) {
+                Role role = getRoleById(rs.getInt("id"));
+                roles.add(role);
+            }
+        }
+
+        return roles;
 
     }
 
