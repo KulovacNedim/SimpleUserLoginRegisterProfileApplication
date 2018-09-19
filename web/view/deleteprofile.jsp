@@ -1,38 +1,73 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 16.09.2018.
-  Time: 22:52
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-	<h1>Delete profile?</h1>
+	<head>
+	    <%@ include file="headContent.jsp"%>
+	</head>
 
-	
-<c:out value = "${userToDelete.firstName}"/><br />
-		<c:out value = "${userToDelete.lastName}"/><br />
-		<c:out value = "${userToDelete.email}"/><br />
-		<c:out value = "${userToDelete.address.street}"/><br />
-		<c:out value = "${userToDelete.address.city}"/><br />
-		<c:out value = "${userToDelete.role.roleName}"/><br />
+	<body>
 
-	<form action="deleteProfile" method="post" class="form">
-		
-		
-		<input type="text" name="userToDelete" id="userToDelete" value="${userToDelete.email}" /> <br>
+		<div class="container">
+			<div class="row">
+			    <div class="col-sm-12" style="">
+			    	<h1>Delete user profile?</h1>
+			    </div>
+		 	</div>
 
-		<br /> <br />
+		 	<br>
 
-		<input class="button" type="submit" value="Delete profile">
+		 	<div class="row">
+			    <div class="col-sm-12" style="">
+			    	<table class="table">
+					    <thead>
+						    <tr>
+						        <th>User info</th>
+						        <th></th>
+						    </tr>
+					    </thead>
+					    <tbody>
+					      	<tr>
+						        <td>First name:</td>
+						        <td><c:out value = "${userToDelete.firstName}"/></td>
+					      	</tr>
+					      	<tr>
+						        <td>Last name:</td>
+						        <td><c:out value = "${userToDelete.lastName}"/></td>
+					      	</tr>
+					      	<tr>
+						        <td>e-mail:</td>
+						        <td><c:out value = "${userToDelete.email}"/></td>
+					      	</tr>
+					      	<tr>
+						        <td>Street:</td>
+						        <td><c:out value = "${userToDelete.address.street}"/></td>
+					      	</tr>
+					      	<tr>
+						        <td>City:</td>
+						        <td><c:out value = "${userToDelete.address.city}"/></td>
+					      	</tr>
+					      	<tr>
+						        <td>Role:</td>
+						        <td><c:out value = "${userToDelete.role.roleName}"/></td>
+					      	</tr>
+					    </tbody>
+					</table>
+			    </div>
+		 	</div>
 
-	</form>
-<a href="/profile"><button>Cancel</button></a>
+		 	<div class="row">
+			    <div class="col-sm-12" style="">
+			    	<form action="deleteProfile" method="post" class="form">
 
-</body>
+						<input type="text" name="userToDelete" id="userToDelete" value="${userToDelete.email}" hidden>
+							       
+						<button type="submit" class="btn btn-default">Delete profile</button>
+					</form>
+					<br>
+					<a href="/profile"><button class="btn btn-default" style="float: left;">Cancel</button></a>
+			    </div>
+			</div>
+
+		</div>
+	</body>
 </html>

@@ -2,112 +2,130 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
-<head>
-	<link rel="stylesheet" href="css/style.css">
-    <title>Title</title>
-</head>
-<body>
-<h1>One more step...</h1>
-
-<p>You are registered. Please edit your profile.</p>
-
-
-<c:out value = "${passwordChanged}"/>
-
-<p>Add your info</p>
-
-<div class="left-box">
-
-<form action="updateInfo" method="post" class="form">
-		
-		<label>First name: </label> 
-		<input type="text" name="firstName" id="firstName" value="${userToEdit.firstName}" required autofocus/><br>
-			
-		<label>Last name: </label> 
-		<input type="text" name="lastName" id="lastName" value="${userToEdit.lastName}" required/> <br>
-
-		<label>email: </label> <c:out value = "${userToEdit.email}"/>
-		<input type="text" name="email" id="email" value="${userToEdit.email}" hidden/><br>
-
-		<label>Street: </label> 
-		<input type="text" name="street" id="street" value="${userToEdit.address.street}" required/><br>
-
-		<label>City: </label> 
-		<input type="text" name="city" id="city" value="${userToEdit.address.city}" required/> <br>
-
-		
-
-		<select name="roleId" id="roleId" ${user.role.id == 1 ? '' : 'hidden'}>
-								
-			<c:forEach items="${roles}" var="role" varStatus="loop">
-
-				<option value="${role.id}" ${userToEdit.role.id == role.id ? 'selected' : ''} >${role.roleName}</option>
-			</c:forEach>
-			
-			
-		</select>
-
-         
-
-
-		<br /> <br />
-		<input class="button" type="submit" value="Save info">
-
-	</form>
-
-	Back button
-	<a href="/profile"><button>Cancel</button></a>
-
-</div>
-
-<div class="right-box">
-
-	<p>In order to chabge your password enter next inofrmations</p>
-
-
-	<c:out value = "${wrongConfirmPassword}"/>
-
-
-	<form action="updatePassword" method="post" class="form">
-
-		<input type="text" name="hiddenEmail" id="hiddenEmail" value="${userToEdit.email}" hidden/><br>
-
-		
-		<label>Enter current password: </label> 
-		<input type="password" name="currentPassword" id="currentPassword" value="" required autofocus><br>
-			
-		<label>Enter new password: </label> 
-		<input type="password" name="newPassword" id="newPassword" value="" title="Must contain at least 8 or more characters"  pattern=".{8,}" required><br>
-
-		<br /> <br />
-		<input class="button" type="submit" value="Change password">
-
-
-
-
-	</form>
-
-	<div id="message">
-			  <p id="length">Minimum <b>8 characters</b></p>
+	<head>
+		<%@ include file="headContent.jsp"%>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<h1>One more step...</h1>
+				<br><br>
+				<div class="alert alert-info col-sm-5">
+				    <p>Please edit your profile.</p>
+				</div>
+				<div class="col-sm-1">
+				</div>
+				<div class="alert alert-info col-sm-5">
+				    <p>Change password section.</p>
+				</div>
+				<div class="col-sm-1">
+				</div>
 			</div>
-</div>
+			<div class="row">
+				<div class="col-sm-5">
+					<form  action="updateInfo" method="post">
+
+						<input type="text" name="email" id="email" value="${userToEdit.email}" hidden/>
 
 
-	
-<script>
-var myInput = document.getElementById("newPassword");
-var length = document.getElementById("length");
+					    <div class="form-group">
+					      <label for="firstName">First name: </label>
+					      <input type="text" name="firstName" class="form-control" id="firstName" value="${userToEdit.firstName}" required autofocus>
+					    </div>
 
-// When the user starts to type something inside the password field
-myInput.onkeyup = function() {
-  // Validate length
-  if(myInput.value.length >= 8) {
-    document.getElementById("message").style.display = "none";
-  } else {
-    document.getElementById("message").style.display = "block";
-  }
-}
-</script>
+					    <div class="form-group">
+					      <label for="lastName">Last name: </label>
+					      <input type="text" name="lastName" class="form-control" id="lastName" value="${userToEdit.lastName}" required>
+					    </div>
 
-</body>
+					    <div class="form-group">
+					      <label for="email">email: </label>
+					      
+					      <p>${userToEdit.email}</p>
+					    </div>
+
+					    <div class="form-group">
+					      <label for="street">Street: </label>
+					      <input type="text" name="street" class="form-control" id="street" value="${userToEdit.address.street}" required>
+					    </div>
+
+					    <div class="form-group">
+					      <label for="city">City: </label>
+					      <input type="text" name="city" class="form-control" id="city" value="${userToEdit.address.city}" required>
+					    </div>
+
+					    <div class="form-group ${user.role.id == 1 ? '' : 'hidden'}">
+					    	<label for="roleId">Role: </label>
+					    	<select class="form-control" name="roleId" id="roleId" >	
+								<c:forEach items="${roles}" var="role" varStatus="loop">
+									<option value="${role.id}" ${userToEdit.role.id == role.id ? 'selected' : ''} >${role.roleName}</option>
+								</c:forEach>
+							</select>
+					    </div>
+
+					    <br>
+
+					    <button type="submit" class="btn btn-default">Save info</button>
+				  	</form>
+
+				  	<a href="/profile"><button class="btn btn-default">Cancel</button></a>
+
+				</div>
+
+				<div class="col-sm-1">
+				</div>
+
+				<div class="col-sm-5">
+					<div class="alert alert-warning  ${wrongConfirmPassword==null ? 'hidden' : 'show'}"">
+					    <strong>Warning!</strong> <c:out value = "${wrongConfirmPassword}"/>
+					</div>
+
+			    	<br>
+
+					<form  action="updatePassword" method="post">
+
+						<input type="text" name="hiddenEmail" id="hiddenEmail" value="${userToEdit.email}" hidden/>
+
+					    <div class="form-group">
+					      <label for="currentPassword">Enter current password: </label>
+					      <input type="password" name="currentPassword" class="form-control" id="currentPassword" value="" required>
+					    </div>
+
+					    <div class="form-group">
+					      <label for="newPassword">Enter new password: </label>
+					      <input type="password" name="newPassword" class="form-control" id="newPassword" value="" title="Must contain at least 8 or more characters"  pattern=".{8,}" required>
+					    </div>
+
+					    <br>
+
+					    <button type="submit" class="btn btn-default">Change password</button>
+
+				  	</form>
+
+				  	<br>
+
+				  	<div class="alert alert-info" id="message">
+					    <p class="text-primary" id="length"><strong>Info:</strong> Minimum <b>8 characters</b></p>
+					</div>
+				</div>
+				<div class="col-sm-1">
+				</div>
+			</div>
+		</div>
+
+		<script>
+			var myInput = document.getElementById("newPassword");
+			var length = document.getElementById("length");
+
+			// When the user starts to type something inside the password field
+			myInput.onkeyup = function() {
+			  // Validate length
+			  if(myInput.value.length >= 8) {
+			    document.getElementById("message").style.display = "none";
+			  } else {
+			    document.getElementById("message").style.display = "block";
+			  }
+			}
+		</script>
+	</body>
 </html>

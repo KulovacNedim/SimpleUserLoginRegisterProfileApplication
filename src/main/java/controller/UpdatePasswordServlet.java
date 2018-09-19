@@ -51,6 +51,8 @@ public class UpdatePasswordServlet extends HttpServlet {
         String passwordChanged = "Password is changed.";
         req.setAttribute("passwordChanged", passwordChanged);
 
+        req.setAttribute("userToUpdate", user);
+
         RequestDispatcher success = req.getRequestDispatcher("view/profile.jsp");
         success.forward(req, resp);
     }

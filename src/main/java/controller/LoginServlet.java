@@ -41,6 +41,7 @@ public class LoginServlet extends HttpServlet {
         }
 
         req.getSession().setAttribute("user", user);
+        req.setAttribute("userToUpdate", user);
 
         RequestDispatcher success = req.getRequestDispatcher("view/profile.jsp");
         success.forward(req, resp);

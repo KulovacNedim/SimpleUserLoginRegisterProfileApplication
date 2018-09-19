@@ -33,7 +33,6 @@ public class EditProfileServlet extends HttpServlet {
             if (req.getParameter("userid") == null) {
                 userToEdit = (User) req.getSession().getAttribute("user");
             } else {
-
                 try {
                     userToEdit = (User) userService.getUserById(Integer.parseInt(req.getParameter("userid")));
                 } catch (SQLException e) {
@@ -49,7 +48,7 @@ public class EditProfileServlet extends HttpServlet {
             }
 
             req.setAttribute("roles", roles);
-            req.getSession().setAttribute("userToEdit", userToEdit);
+            req.setAttribute("userToEdit", userToEdit);
 
             RequestDispatcher success = req.getRequestDispatcher("view/profilesetup.jsp");
             success.forward(req, resp);
