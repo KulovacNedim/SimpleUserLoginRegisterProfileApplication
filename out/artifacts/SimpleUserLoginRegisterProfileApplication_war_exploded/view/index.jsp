@@ -22,13 +22,17 @@
 		  </div>
 
 
-		  <div class="row" style="padding-top: 15%;">
+		  <div class="row" style="padding-top: 5%;">
 		    <div class="col-sm-6" style="">
 
 		    	<div class="alert alert-warning ${wrongCredentials==null ? 'hidden' : 'show'}" >
 				    <strong>Warning!</strong> <c:out value = "${wrongCredentials}"/>
 				</div>
 		    	
+		    	<br>
+
+		    	<h3>Login section</h3>
+
 		    	<br>
 
 				<form  action="login" method="post">
@@ -53,6 +57,11 @@
 		    	<div class="alert alert-warning  ${existingEmail==null ? 'hidden' : 'show'}"">
 				    <strong>Warning!</strong> <c:out value = "${existingEmail}"/>
 				</div>
+
+		    	<br>
+
+				<h3>Register section</h3>
+		    	
 		    	<br>
 
 		    	<form  action="register" method="post">
