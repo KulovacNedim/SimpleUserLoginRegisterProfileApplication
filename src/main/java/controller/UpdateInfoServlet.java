@@ -85,7 +85,7 @@ public class UpdateInfoServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        // update User in session. 
+        // update User in session.
         if (userToUpdate.getEmail().equals(((User)req.getSession().getAttribute("user")).getEmail())) {
             try {
                 User newUser = userService.getUserByEmail(userToUpdate.getEmail());

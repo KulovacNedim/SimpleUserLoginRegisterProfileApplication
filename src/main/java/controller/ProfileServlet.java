@@ -1,5 +1,7 @@
 package main.java.controller;
 
+import main.java.entities.User;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +20,10 @@ public class ProfileServlet extends HttpServlet {
             RequestDispatcher success = req.getRequestDispatcher("view/index.jsp");
             success.forward(req, resp);
         } else {
+
+            User userToUpdate = (User) req.getSession().getAttribute("user");
+            req.setAttribute("userToUpdate", userToUpdate);
+
             RequestDispatcher success = req.getRequestDispatcher("view/profile.jsp");
             success.forward(req, resp);
         }
