@@ -68,7 +68,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="1" />
-          <entry key="java" value="234" />
+          <entry key="java" value="237" />
           <entry key="jsp" value="22" />
           <entry key="md" value="3" />
           <entry key="sql" value="7" />
@@ -78,7 +78,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="JAVA" value="234" />
+          <entry key="JAVA" value="237" />
           <entry key="JSP" value="22" />
           <entry key="Markdown" value="3" />
           <entry key="Scratch" value="7" />
@@ -89,7 +89,7 @@
         <counts>
           <entry key="cell" value="1" />
           <entry key="dummy" value="8" />
-          <entry key="java" value="9474" />
+          <entry key="java" value="9503" />
           <entry key="jsp" value="46" />
           <entry key="md" value="96" />
           <entry key="sql" value="285" />
@@ -98,7 +98,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9474" />
+          <entry key="JAVA" value="9503" />
           <entry key="JSP" value="46" />
           <entry key="Markdown" value="96" />
           <entry key="PLAIN_TEXT" value="8" />
@@ -124,13 +124,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="425">
-                <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/UpdateInfoServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="87" column="35" selection-start-line="87" selection-start-column="35" selection-end-line="87" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/UpdatePasswordServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -197,7 +209,6 @@
         <option value="$PROJECT_DIR$/src/main/java/filter/UpdatePasswordFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/LogoutService.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/LogoutServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/DeleteProfileServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/filter/RegisterFilter.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/web/view/index.jsp" />
@@ -208,9 +219,10 @@
         <option value="$PROJECT_DIR$/src/main/java/controller/LoginServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/UpdatePasswordServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/EditProfileServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/UpdateInfoServlet.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/74ea2449-cb3a-4164-97ca-5b8ee2d8114c/console.sql" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/DeleteProfileServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/UpdateInfoServlet.java" />
       </list>
     </option>
   </component>
@@ -324,7 +336,7 @@
               <item name="SimpleUserLoginRegisterProfileApplication" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
+              <item name="dbConnectionMenager" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimpleUserLoginRegisterProfileApplication" type="b2602c69:ProjectViewProjectNode" />
@@ -518,12 +530,12 @@
       <workItem from="1536873179779" duration="4772000" />
       <workItem from="1536958295024" duration="46547000" />
       <workItem from="1537249397245" duration="26938000" />
-      <workItem from="1537301007948" duration="22879000" />
+      <workItem from="1537301007948" duration="23171000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101136000" />
+    <option name="totallyTimeSpent" value="101428000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -763,16 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/DeleteProfileServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="36" column="82" selection-start-line="36" selection-start-column="82" selection-end-line="36" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/view/allusers.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -807,16 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/UpdatePasswordServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/LoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
@@ -831,16 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
           <caret line="78" column="46" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/UpdateInfoServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="49" column="53" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -864,6 +846,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="357">
+            <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/DeleteProfileServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/74ea2449-cb3a-4164-97ca-5b8ee2d8114c/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -871,13 +873,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="425">
-            <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/UpdatePasswordServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/UpdateInfoServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="87" column="35" selection-start-line="87" selection-start-column="35" selection-end-line="87" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
