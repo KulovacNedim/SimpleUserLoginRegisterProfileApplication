@@ -3,77 +3,97 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="css/style.css">
-<title>Login register page</title>
+	<head>
+		<%@ include file="headContent.jsp"%>
+	</head>
 
-<style>
+	<body>
 
-/* The message box is shown when the user clicks on the password field */
-#message {
-    display:none;
+		<div class="container">
+		  
+		  <div class="row">
+		    <div class="col-sm-12" style="">
+		    	
+		    	<h1>Simple user profile contolling application!</h1>
+		  
+		  		<p>Just practice common web technologies.</p>
 
-}
+		    </div>
+		  </div>
 
-</style>
 
-</head>
-<body>
-	<div id="container">
-		
-		<div class="left-box">
-		
-			<form action="login" method="post" class="form">
-							
-				<label>Enter username: </label> 
-				<input type="email" name="email" id="email" required autofocus> <br />
-			  
-				<label>Enter password: </label>
-				<input type="password" name="password" id="password" required><br /> <br />
-			  
-				<input class="button" type="submit" value="Login">
-			 
-			</form>
-			
-			<c:out value = "${wrongCredentials}"/>
-	</div>
-		
-		<div class="right-box">
-			<form action="register" method="post" class="form">
-						 
-				<label>Enter email: </label> 
-				<input type="email" name="email" id="email" required autofocus>
-				 
-				<label>Enter password: </label>
-				<input type="password" name="password" id="passReg" title="Must contain at least 8 or more characters"  pattern=".{8,}" required><br /> <br />
-				<input class="button" type="submit" value="Register">
+		  <div class="row" style="padding-top: 15%;">
+		    <div class="col-sm-6" style="">
 
-			</form>
+		    	<div class="alert alert-warning ${wrongCredentials==null ? 'hidden' : 'show'}" >
+				    <strong>Warning!</strong> <c:out value = "${wrongCredentials}"/>
+				</div>
+		    	
+		    	<br>
 
-			<c:out value = "${existingEmail}"/>
+				<form  action="login" method="post">
 
-			
-			<div id="message">
-			  <p id="length">Minimum <b>8 characters</b></p>
-			</div>
-			
+				    <div class="form-group">
+				      <label for="email">Enter e-mail:</label>
+				      <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required autofocus>
+				    </div>
 
+				    <div class="form-group">
+				      <label for="password">Password:</label>
+				      <input type="password" name="password" class="form-control" id="password" placeholder="Enter password" required>
+				    </div>
+
+				    <button type="submit" class="btn btn-default">Login</button>
+				  </form>
+				
+		    </div>
+
+		    <div class="col-sm-6" style="">
+
+		    	<div class="alert alert-warning  ${existingEmail==null ? 'hidden' : 'show'}"">
+				    <strong>Warning!</strong> <c:out value = "${existingEmail}"/>
+				</div>
+		    	<br>
+
+		    	<form  action="register" method="post">
+
+				    <div class="form-group">
+				      <label for="email">Enter e-mail:</label>
+				      <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
+				    </div>
+
+				    <div class="form-group">
+				      <label for="password">Password:</label>
+				      <input type="password" name="password" class="form-control" id="passReg" placeholder="Enter password" title="Must contain at least 8 or more characters" pattern=".{8,}" required>
+				    </div>
+				    
+				    <button type="submit" class="btn btn-default">Register</button>
+
+			  	</form>
+
+			  	<br>
+
+			  	<div class="alert alert-info" id="message">
+				    <p class="text-primary" id="length"><strong>Info:</strong> Minimum <b>8 characters</b></p>
+				</div>
+
+		    </div>
+		  </div>
 		</div>
-	</div>
-<script>
-var myInput = document.getElementById("passReg");
-var length = document.getElementById("length");
 
-// When the user starts to type something inside the password field
-myInput.onkeyup = function() {
-  // Validate length
-  if(myInput.value.length >= 8) {
-    document.getElementById("message").style.display = "none";
-  } else {
-    document.getElementById("message").style.display = "block";
-  }
-}
-</script>
-</body>
+		<script>
+			var myInput = document.getElementById("passReg");
+			var length = document.getElementById("length");
+
+			// When the user starts to type something inside the password field
+			myInput.onkeyup = function() {
+			  // Validate length
+			  if(myInput.value.length >= 8) {
+			    document.getElementById("message").style.display = "none";
+			  } else {
+			    document.getElementById("message").style.display = "block";
+			  }
+			}
+		</script>
+	</body>
 </html>

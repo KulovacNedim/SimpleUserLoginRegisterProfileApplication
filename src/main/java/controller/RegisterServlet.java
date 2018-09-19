@@ -70,8 +70,7 @@ public class RegisterServlet extends HttpServlet {
         request.setAttribute("roles", roles);
 
         // purpouse: profilesetup.jsp requires userToEdit object (admin role has to have dinstinct objects: user and userToEdit)
-        User userToEdit = new User();
-        userToEdit = user;
+        User userToEdit = user;
 
         String regSucc = "You are registered. Please edit your profile.";
         request.setAttribute("regSucc", regSucc);

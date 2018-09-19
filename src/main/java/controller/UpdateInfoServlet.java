@@ -1,7 +1,9 @@
 package main.java.controller;
 
+import main.java.entities.Address;
 import main.java.entities.Role;
 import main.java.entities.User;
+import main.java.service.AddressService;
 import main.java.service.RoleService;
 import main.java.service.UserService;
 
@@ -30,18 +32,19 @@ public class UpdateInfoServlet extends HttpServlet {
 
         UserService userService = new UserService();
         RoleService roleService = new RoleService();
+        AddressService addressService = new AddressService();
 
         User userToUpdate = null;
 
         try {
             userToUpdate = userService.getUserByEmail(req.getParameter("email"));
+            System.out.println(userToUpdate.toString());
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         if (userToUpdate.getEmail() == null) {
             userToUpdate = (User) req.getSession().getAttribute("user");
-
         } else {
             try {
                 userToUpdate = (User) userService.getUserByEmail(req.getParameter("email"));
@@ -55,6 +58,7 @@ public class UpdateInfoServlet extends HttpServlet {
         String street = (String) req.getParameter("street");
         String city = (String) req.getParameter("city");
         Role role = null;
+        Address address = null;
 
         try {
             role = roleService.getRoleById(Integer.parseInt(req.getParameter("roleId")));
@@ -62,10 +66,17 @@ public class UpdateInfoServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        try {
+            address = addressService.getAddressById(userToUpdate.getId());
+            address.setStreet(street);
+            address.setCity(city);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         userToUpdate.setFirstName(firstName);
         userToUpdate.setLastName(lastName);
-        userToUpdate.getAddress().setStreet(street);
-        userToUpdate.getAddress().setCity(city);
+        userToUpdate.setAddress(address);
         userToUpdate.setRole(role);
 
         try {
@@ -73,6 +84,17 @@ public class UpdateInfoServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        if (userToUpdate.getEmail().equals(((User)req.getSession().getAttribute("user")).getEmail())) {
+            try {
+                User newUser = userService.getUserByEmail(userToUpdate.getEmail());
+                req.getSession().setAttribute("user", newUser);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        req.setAttribute("userToUpdate", userToUpdate);
 
         RequestDispatcher success = req.getRequestDispatcher("view/profile.jsp");
         success.forward(req, resp);
