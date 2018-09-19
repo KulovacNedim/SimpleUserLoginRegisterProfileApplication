@@ -28,5 +28,5 @@ If it's still a banal task - add user roles to your system :
 BONUS 2:
 Validate data fields. Nothing fancy, but at least some basic server side validation.
 
-<u>EDIT:</u><br>
+<u>UPDATE:</u><br>
 Admin credentials: <br>email: ned@bild.com <br>pass: nedim123

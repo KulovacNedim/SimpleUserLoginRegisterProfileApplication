@@ -70,7 +70,7 @@
           <entry key="css" value="1" />
           <entry key="java" value="234" />
           <entry key="jsp" value="22" />
-          <entry key="md" value="2" />
+          <entry key="md" value="3" />
           <entry key="sql" value="7" />
           <entry key="xml" value="9" />
         </counts>
@@ -80,7 +80,7 @@
           <entry key="CSS" value="1" />
           <entry key="JAVA" value="234" />
           <entry key="JSP" value="22" />
-          <entry key="Markdown" value="2" />
+          <entry key="Markdown" value="3" />
           <entry key="Scratch" value="7" />
           <entry key="XML" value="9" />
         </counts>
@@ -91,7 +91,7 @@
           <entry key="dummy" value="8" />
           <entry key="java" value="9474" />
           <entry key="jsp" value="46" />
-          <entry key="md" value="90" />
+          <entry key="md" value="96" />
           <entry key="sql" value="285" />
           <entry key="xml" value="43" />
         </counts>
@@ -100,7 +100,7 @@
         <counts>
           <entry key="JAVA" value="9474" />
           <entry key="JSP" value="46" />
-          <entry key="Markdown" value="90" />
+          <entry key="Markdown" value="96" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="Scratch" value="286" />
           <entry key="XML" value="43" />
@@ -118,7 +118,7 @@
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/74ea2449-cb3a-4164-97ca-5b8ee2d8114c/console.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+              <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -127,8 +127,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="75">
-                <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+              <first_editor relative-caret-position="425">
+                <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
               </first_editor>
               <second_editor />
             </state>
@@ -245,7 +245,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1366" />
     <option name="height" value="728" />
   </component>
@@ -518,18 +518,18 @@
       <workItem from="1536873179779" duration="4772000" />
       <workItem from="1536958295024" duration="46547000" />
       <workItem from="1537249397245" duration="26938000" />
-      <workItem from="1537301007948" duration="22178000" />
+      <workItem from="1537301007948" duration="22879000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100435000" />
+    <option name="totallyTimeSpent" value="101136000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -537,7 +537,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="0" visible="true" weight="0.62847793" />
+      <window_info anchor="bottom" id="Database Console" order="0" weight="0.62847793" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3277311" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.3747954" />
@@ -867,15 +867,15 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/74ea2449-cb3a-4164-97ca-5b8ee2d8114c/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+          <first_editor relative-caret-position="425">
+            <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
           </first_editor>
           <second_editor />
         </state>
